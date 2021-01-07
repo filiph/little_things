@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:little_things_list/src/data/agenda.dart';
 import 'package:little_things_list/src/data/done_provider.dart';
 import 'package:little_things_list/src/data/loader.dart';
 import 'package:little_things_list/src/data/parse_agenda.dart';
@@ -21,11 +20,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        appBarTheme: AppBarTheme(
-          color: Colors.white,
-          elevation: 0,
-          brightness: Brightness.light,
-        ),
       ),
       home: Loader(
         () => parseAgenda(context),

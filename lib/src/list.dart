@@ -17,15 +17,10 @@ class MyAgendaList extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'My agenda',
-                style: TextStyle(fontSize: 24),
-              ),
+              Text('My agenda', style: TextStyle(fontSize: 28)),
+              Text("These are the topics I’d like to discuss today."),
               for (final item in agenda.items) AgendaListItem(item),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text('Finish'),
-              )
+              ElevatedButton(onPressed: null, child: Text('Finish'))
             ],
           ),
         ),

@@ -17,20 +17,13 @@ class AgendaListItem extends StatelessWidget {
       onTap: () {
         context.read<DoneNotifier>().toggle(item);
       },
-      onLongPress: () {
-        Scaffold.of(context).showBottomSheet((context) => BottomSheet(
-            onClosing: () {},
-            builder: (context) {
-              return Text(item.description);
-            }));
-      },
       child: AnimatedPadding(
         padding: EdgeInsets.symmetric(vertical: 0),
         duration: const Duration(milliseconds: 300),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(item.name),
+            Text(item.name, style: TextStyle(fontSize: 22)),
             Icon(Icons.check, color: isDone ? Colors.green : Colors.black12),
           ],
         ),
