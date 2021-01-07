@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:little_things_list/src/data/agenda.dart';
 
-class Loader<T> extends StatefulWidget {
-  final Future<T> Function() loadFunction;
+class Loader extends StatefulWidget {
+  final Future<Agenda> Function() loadFunction;
 
-  final Widget Function(T data) builder;
+  final Widget Function(Agenda data) builder;
 
   const Loader(this.loadFunction, this.builder);
 
@@ -11,12 +12,12 @@ class Loader<T> extends StatefulWidget {
   _LoaderState createState() => _LoaderState();
 }
 
-class _LoaderState<T> extends State<Loader<T>> {
-  Future<T> _future;
+class _LoaderState<T> extends State<Loader> {
+  Future<Agenda> _future;
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<T>(
+    return FutureBuilder<Agenda>(
       future: _future,
       builder: (context, snapshot) {
         if (!snapshot.hasData) {

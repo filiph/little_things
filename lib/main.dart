@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
         ),
       ),
-      home: Loader<Agenda>(
+      home: Loader(
         () => parseAgenda(context),
         (agenda) => MyAgendaList(agenda),
       ),
