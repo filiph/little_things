@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:little_things_list/src/agenda.dart';
+import 'package:little_things_list/src/data/agenda.dart';
 
 class DoneNotifier extends ChangeNotifier {
   final _state = <AgendaItem>{};
