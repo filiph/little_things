@@ -24,11 +24,16 @@ class AgendaListItem extends StatelessWidget {
               return Text(item.description);
             }));
       },
-      child: Row(
-        children: [
-          Text(item.name),
-          Icon(Icons.check, color: isDone ? Colors.green : Colors.black12),
-        ],
+      child: AnimatedPadding(
+        padding: EdgeInsets.symmetric(vertical: 0),
+        duration: const Duration(milliseconds: 300),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(item.name),
+            Icon(Icons.check, color: isDone ? Colors.green : Colors.black12),
+          ],
+        ),
       ),
     );
   }

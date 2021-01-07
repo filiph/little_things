@@ -11,19 +11,23 @@ class MyAgendaList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'My agenda',
-              style: TextStyle(fontSize: 24),
-            ),
-            for (final item in agenda.items) AgendaListItem(item),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text('Finish'),
-            )
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 80),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'My agenda',
+                style: TextStyle(fontSize: 24),
+              ),
+              for (final item in agenda.items) AgendaListItem(item),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text('Finish'),
+              )
+            ],
+          ),
         ),
       ),
     );
