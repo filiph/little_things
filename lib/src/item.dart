@@ -18,7 +18,7 @@ class AgendaListItem extends StatelessWidget {
         context.read<DoneNotifier>().toggle(item);
       },
       child: AnimatedPadding(
-        padding: EdgeInsets.symmetric(vertical: 0),
+        padding: EdgeInsets.only(left: 20),
         duration: const Duration(milliseconds: 300),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
