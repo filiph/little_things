@@ -13,21 +13,37 @@ class AgendaListItem extends StatelessWidget {
     final isDone =
         context.select<DoneNotifier, bool>((value) => value.isDone(item));
 
-    return InkWell(
-      onTap: () {
-        context.read<DoneNotifier>().toggle(item);
-      },
-      child: AnimatedPadding(
-        padding: EdgeInsets.only(left: 20),
-        duration: const Duration(milliseconds: 300),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(item.name, style: TextStyle(fontSize: 22)),
-            Icon(Icons.check, color: isDone ? Colors.green : Colors.black12),
-          ],
+    const double left = 20;
+    const double right = 20;
+    const double vertical = 0;
+    const paddingDuration = Duration(milliseconds: 300);
+
+    return Row(
+      children: [
+        Expanded(
+          child: InkWell(
+            onTap: () {},
+            child: AnimatedPadding(
+              padding:
+                  EdgeInsets.only(left: left, top: vertical, bottom: vertical),
+              duration: paddingDuration,
+              child: Text(item.name, style: TextStyle(fontSize: 22)),
+            ),
+          ),
         ),
-      ),
+        InkWell(
+          onTap: () {
+            context.read<DoneNotifier>().toggle(item);
+          },
+          child: AnimatedPadding(
+            padding: const EdgeInsets.only(
+                left: right, right: right, top: vertical, bottom: vertical),
+            duration: paddingDuration,
+            child: Icon(Icons.check,
+                color: isDone ? Colors.green : Colors.black12),
+          ),
+        ),
+      ],
     );
   }
 }
