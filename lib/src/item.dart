@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:little_things_list/src/data/agenda.dart';
 import 'package:little_things_list/src/data/done_provider.dart';
+import 'package:little_things_list/src/detail.dart';
 import 'package:provider/provider.dart';
 
 class AgendaListItem extends StatelessWidget {
@@ -22,7 +23,10 @@ class AgendaListItem extends StatelessWidget {
       children: [
         Expanded(
           child: InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => ItemDetail(item)));
+            },
             child: AnimatedPadding(
               padding:
                   EdgeInsets.only(left: left, top: vertical, bottom: vertical),
@@ -39,7 +43,7 @@ class AgendaListItem extends StatelessWidget {
             padding: const EdgeInsets.only(
                 left: right, right: right, top: vertical, bottom: vertical),
             duration: paddingDuration,
-            child: Icon(Icons.check,
+            child: Icon(Icons.check, size: 28,
                 color: isDone ? Colors.green : Colors.black12),
           ),
         ),
