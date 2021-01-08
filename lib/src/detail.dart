@@ -11,6 +11,14 @@ class ItemDetail extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(item.name),
+        backgroundColor: Theme.of(context).canvasColor,
+        elevation: 0,
+        brightness: Brightness.light,
+        textTheme: TextTheme(
+          headline6:
+              Theme.of(context).textTheme.headline6.apply(color: Colors.blue),
+        ),
+        iconTheme: IconThemeData(color: Colors.blue),
       ),
       body: ListView(
         padding: EdgeInsets.only(bottom: 40),
