@@ -41,7 +41,7 @@ class AgendaListItem extends StatelessWidget {
           },
           child: AnimatedPadding(
             padding: const EdgeInsets.only(
-                left: right, right: right, top: vertical, bottom: vertical),
+                left: 20, right: right, top: vertical, bottom: vertical),
             duration: paddingDuration,
             child: Icon(Icons.check, size: 28,
                 color: isDone ? Colors.green : Colors.black12),
