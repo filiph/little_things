@@ -40,10 +40,18 @@ class _Paragraph extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Text child;
+    if (text.startsWith('# ')) {
+      child = Text(text.substring(2),
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold));
+    } else {
+      child = Text(text, style: TextStyle(fontSize: 18));
+    }
+
     return AnimatedPadding(
       padding: EdgeInsets.only(left: 20, top: 10, right: 20),
       duration: const Duration(milliseconds: 300),
-      child: Text(text, style: TextStyle(fontSize: 18)),
+      child: child,
     );
   }
 }
