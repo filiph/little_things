@@ -11,7 +11,7 @@ class CongratsCard extends StatelessWidget {
     return AnimatedPositioned(
       left: 40,
       right: 40,
-      top: allDone ? 200 : -250,
+      top: allDone ? 200 : -270,
       duration: const Duration(milliseconds: 500),
       child: Card(
         child: Padding(
