@@ -11,12 +11,17 @@ class CongratsCard extends StatelessWidget {
     return AnimatedPositioned(
       left: 40,
       right: 40,
-      top: allDone ? 200 : -270,
+      top: allDone ? 200 : -400,
       duration: const Duration(milliseconds: 500),
-      child: Card(
-        child: Padding(
-          padding: EdgeInsets.only(top: 30, left: 50, right: 50, bottom: 20),
-          child: _CardContents(allDone),
+      child: RepaintBoundary(
+        child: Card(
+          shape: CircleBorder(),
+          elevation: 12,
+          child: Padding(
+            padding:
+                EdgeInsets.only(top: 130, left: 50, right: 50, bottom: 110),
+            child: _CardContents(allDone),
+          ),
         ),
       ),
     );
@@ -46,12 +51,15 @@ class _CardContentsState extends State<_CardContents> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Text('🎉', style: TextStyle(fontSize: 50)),
+        SizedBox(height: 10),
         Text(
           'Congratulations!',
-          style: Theme.of(context).textTheme.headline5,
+          style: Theme.of(context)
+              .textTheme
+              .headline5
+              .copyWith(fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 10),
-        Text('🎉', style: TextStyle(fontSize: 50)),
         Padding(
           padding: const EdgeInsets.only(top: 20, bottom: 15),
           child: Text(
