@@ -21,7 +21,7 @@ class ItemDetail extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.blue),
       ),
       body: ListView(
-        padding: EdgeInsets.only(bottom: 40),
+        padding: EdgeInsets.only(bottom: 60),
         children: [
           for (var paragraph in item.description
               .split('\n')
@@ -49,7 +49,7 @@ class _Paragraph extends StatelessWidget {
     }
 
     return AnimatedPadding(
-      padding: EdgeInsets.only(left: 20, top: 10, right: 20),
+      padding: EdgeInsets.only(left: 72, top: 20, right: 20),
       duration: const Duration(milliseconds: 300),
       child: child,
     );

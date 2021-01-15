@@ -52,7 +52,7 @@ class _CardContentsState extends State<_CardContents> {
     return Column(
       children: [
         Text('🎉', style: TextStyle(fontSize: 50)),
-        SizedBox(height: 10),
+        SizedBox(height: 20),
         Text(
           'Congratulations!',
           style: Theme.of(context)
@@ -61,7 +61,7 @@ class _CardContentsState extends State<_CardContents> {
               .copyWith(fontWeight: FontWeight.bold),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 20, bottom: 15),
+          padding: const EdgeInsets.only(top: 20, bottom: 30),
           child: Text(
             'You have successfully completed watching this talk. '
             'You get 50 completely meaningless virtual points!',
