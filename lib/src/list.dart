@@ -15,14 +15,14 @@ class MyAgendaList extends StatelessWidget {
         Scaffold(
           body: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 100),
+              padding: const EdgeInsets.only(left: 100, right: 80),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text('My agenda', style: TextStyle(fontSize: 28)),
                   Padding(
-                    padding: const EdgeInsets.only(top: 20),
+                    padding: const EdgeInsets.only(top: 20, right: 20),
                     child: Text('These are the topics I’d like to discuss today.'),
                   ),
                   SizedBox(height: 30),

@@ -15,7 +15,7 @@ class AgendaListItem extends StatelessWidget {
         context.select<DoneNotifier, bool>((value) => value.isDone(item));
 
     const double left = 0;
-    const double right = 0;
+    const double right = 20;
     const double vertical = 7;
     const paddingDuration = Duration(milliseconds: 300);
 
