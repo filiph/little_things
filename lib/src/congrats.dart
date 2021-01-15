@@ -45,7 +45,8 @@ class _CardContentsState extends State<_CardContents>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this);
+    _controller = AnimationController(
+        duration: const Duration(milliseconds: 3000), vsync: this);
   }
 
   @override
@@ -58,8 +59,9 @@ class _CardContentsState extends State<_CardContents>
   void didUpdateWidget(covariant _CardContents oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (!oldWidget.isDone && widget.isDone) {
-      _controller.duration = const Duration(milliseconds: 3000);
       _controller.forward(from: 0);
+    } else if (oldWidget.isDone && !widget.isDone) {
+      _controller.reset();
     }
   }
 
@@ -85,18 +87,21 @@ class _CardContentsState extends State<_CardContents>
           'Congratulations!',
           style: theme.textTheme.headline4.copyWith(fontSize: 30),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 20, bottom: 30),
-          child: TrackedOutText(
-            'You have successfully completed watching this talk. '
-            'You get 50 completely meaningless virtual points!',
-            CurvedAnimation(curve: Interval(0.5, 0.9), parent: _controller),
-            textAlign: TextAlign.center,
-            style: theme.textTheme.bodyText2.copyWith(
-              fontSize: 14,
-            ),
-          ),
-        ),
+        // Padding(
+        //   padding: const EdgeInsets.only(top: 20, bottom: 30),
+        //   child: TrackedOutText(
+        //     'You have successfully completed watching this talk. '
+        //     'You get 50 completely meaningless virtual points!',
+        //     CurvedAnimation(
+        //       curve: Interval(0.5, 0.9),
+        //       parent: _controller,
+        //     ),
+        //     textAlign: TextAlign.center,
+        //     style: theme.textTheme.bodyText2.copyWith(
+        //       fontSize: 14,
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }
@@ -148,7 +153,7 @@ class _TrackedOutTextState extends State<TrackedOutText> {
                     text: widget._slices[i],
                     style: (i / widget._slices.length < widget.progress.value)
                         ? null
-                        : TextStyle(color: Colors.transparent))
+                        : widget.style.apply(color: Colors.transparent))
             ],
           ),
           textAlign: widget.textAlign,
