@@ -58,7 +58,7 @@ class _CardContentsState extends State<_CardContents>
   void didUpdateWidget(covariant _CardContents oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (!oldWidget.isDone && widget.isDone) {
-      _controller.duration = const Duration(milliseconds: 2000);
+      _controller.duration = const Duration(milliseconds: 3000);
       _controller.forward(from: 0);
     }
   }
@@ -71,7 +71,11 @@ class _CardContentsState extends State<_CardContents>
       children: [
         ScaleTransition(
           scale: CurvedAnimation(
-            curve: Curves.elasticOut,
+            curve: Interval(
+              0.2,
+              0.6,
+              curve: Curves.elasticOut,
+            ),
             parent: _controller,
           ),
           child: Text('🎉', style: TextStyle(fontSize: 50)),
@@ -86,7 +90,7 @@ class _CardContentsState extends State<_CardContents>
           child: TrackedOutText(
             'You have successfully completed watching this talk. '
             'You get 50 completely meaningless virtual points!',
-            _controller,
+            CurvedAnimation(curve: Interval(0.5, 0.9), parent: _controller),
             textAlign: TextAlign.center,
             style: theme.textTheme.bodyText2.copyWith(
               fontSize: 14,
@@ -142,7 +146,7 @@ class _TrackedOutTextState extends State<TrackedOutText> {
               for (var i = 0; i < widget._slices.length; i++)
                 TextSpan(
                     text: widget._slices[i],
-                    style: (i / widget._slices.length <= widget.progress.value)
+                    style: (i / widget._slices.length < widget.progress.value)
                         ? null
                         : TextStyle(color: Colors.transparent))
             ],
