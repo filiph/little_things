@@ -25,19 +25,33 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          textTheme: TextTheme(
-            headline4: GoogleFonts.workSans(
-              fontSize: 41,
-              fontWeight: FontWeight.w400,
-              letterSpacing: -3,
-              color: Colors.black,
-            ),
-            headline6: GoogleFonts.workSans(fontSize: 22),
-            bodyText2: GoogleFonts.sourceSerifPro(fontSize: 18, height: 1.6),
-            subtitle1: GoogleFonts.sourceSerifPro(fontSize: 18, height: 1.4),
-          )),
+        primarySwatch: MaterialColor(0xFF386FA4, {
+          50: Color(0xFFD1E1EF),
+          100: Color(0xFFB3CDE5),
+          200: Color(0xFF85AFD5),
+          300: Color(0xFF679BCB),
+          400: Color(0xFF4987C1),
+          500: Color(0xFF386FA4),
+          600: Color(0xFF386FA4),
+          700: Color(0xFF2F5D89),
+          800: Color(0xFF1F3E5B),
+          900: Color(0xFF101F2E),
+        }),
+        accentColor: Color(0xFFE42535),
+        splashColor: Color(0xFFD1E1EF),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        textTheme: TextTheme(
+          headline4: GoogleFonts.workSans(
+            fontSize: 41,
+            fontWeight: FontWeight.w400,
+            letterSpacing: -3,
+            color: Colors.black,
+          ),
+          headline6: GoogleFonts.workSans(fontSize: 22),
+          bodyText2: GoogleFonts.sourceSerifPro(fontSize: 18, height: 1.6),
+          subtitle1: GoogleFonts.sourceSerifPro(fontSize: 18, height: 1.4),
+        ),
+      ),
       home: Loader(
         () => parseAgenda(context),
         (agenda) => MyAgendaList(agenda),

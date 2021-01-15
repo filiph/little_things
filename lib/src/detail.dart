@@ -8,6 +8,8 @@ class ItemDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(item.name),
@@ -15,10 +17,19 @@ class ItemDetail extends StatelessWidget {
         elevation: 0,
         brightness: Brightness.light,
         textTheme: TextTheme(
-          headline6:
-              Theme.of(context).textTheme.headline6.apply(color: Colors.blue),
+          headline6: Theme.of(context)
+              .textTheme
+              .headline6
+              .apply(color: theme.primaryColor),
         ),
-        iconTheme: IconThemeData(color: Colors.blue),
+        iconTheme: IconThemeData(color: theme.primaryColor),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.bookmark_border),
+            onPressed: () {},
+            color: theme.accentColor,
+          ),
+        ],
       ),
       body: ListView(
         padding: EdgeInsets.only(bottom: 60),
@@ -49,7 +60,7 @@ class _Paragraph extends StatelessWidget {
         child: Text(text.substring(2), style: theme.textTheme.headline6),
       );
     } else {
-      child = Text(text);
+      child = SelectableText(text);
     }
 
     return AnimatedPadding(

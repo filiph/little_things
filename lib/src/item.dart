@@ -14,7 +14,7 @@ class AgendaListItem extends StatelessWidget {
     final isDone =
         context.select<DoneNotifier, bool>((value) => value.isDone(item));
 
-    const double left = 0;
+    const double left = 20;
     const double right = 20;
     const double vertical = 7;
     const paddingDuration = Duration(milliseconds: 300);
@@ -46,7 +46,7 @@ class AgendaListItem extends StatelessWidget {
                 left: 20, right: right, top: vertical, bottom: vertical),
             duration: paddingDuration,
             child: Icon(Icons.check, size: 28,
-                color: isDone ? Colors.green : Colors.black12),
+                color: isDone ? theme.primaryColor : theme.primaryColorLight),
           ),
         ),
       ],
