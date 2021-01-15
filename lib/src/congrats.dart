@@ -11,8 +11,9 @@ class CongratsCard extends StatelessWidget {
     return AnimatedPositioned(
       left: 40,
       right: 40,
-      top: allDone ? 180 : -420,
+      top: allDone ? 100 : -420,
       duration: const Duration(milliseconds: 500),
+      curve: Curves.easeOutCubic,
       child: RepaintBoundary(
         child: Card(
           shape: CircleBorder(),
