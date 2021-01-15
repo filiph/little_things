@@ -49,13 +49,15 @@ class _CardContentsState extends State<_CardContents> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Column(
       children: [
         Text('🎉', style: TextStyle(fontSize: 50)),
         SizedBox(height: 20),
         Text(
           'Congratulations!',
-          style: Theme.of(context)
+          style: theme
               .textTheme
               .headline5
               .copyWith(fontWeight: FontWeight.bold),
@@ -66,6 +68,7 @@ class _CardContentsState extends State<_CardContents> {
             'You have successfully completed watching this talk. '
             'You get 50 completely meaningless virtual points!',
             textAlign: TextAlign.center,
+            style: theme.textTheme.bodyText1,
           ),
         ),
       ],

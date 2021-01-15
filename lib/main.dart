@@ -23,6 +23,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        textTheme: TextTheme(
+          headline1: TextStyle(),
+          bodyText2: TextStyle(fontSize: 18),
+          subtitle1: TextStyle(fontStyle: FontStyle.italic),
+        )
       ),
       home: Loader(
         () => parseAgenda(context),

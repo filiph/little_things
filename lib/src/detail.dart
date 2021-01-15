@@ -40,12 +40,14 @@ class _Paragraph extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     Text child;
     if (text.startsWith('# ')) {
       child = Text(text.substring(2),
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold));
+          style: theme.textTheme.headline6);
     } else {
-      child = Text(text, style: TextStyle(fontSize: 18));
+      child = Text(text);
     }
 
     return AnimatedPadding(

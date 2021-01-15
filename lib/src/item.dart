@@ -19,6 +19,8 @@ class AgendaListItem extends StatelessWidget {
     const double vertical = 7;
     const paddingDuration = Duration(milliseconds: 300);
 
+    final theme = Theme.of(context);
+
     return Row(
       children: [
         Expanded(
@@ -31,7 +33,7 @@ class AgendaListItem extends StatelessWidget {
               padding:
                   EdgeInsets.only(left: left, top: vertical, bottom: vertical),
               duration: paddingDuration,
-              child: Text(item.name, style: TextStyle(fontSize: 22)),
+              child: Text(item.name, style: theme.textTheme.headline6),
             ),
           ),
         ),
