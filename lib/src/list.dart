@@ -35,7 +35,7 @@ class MyAgendaList extends StatelessWidget {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                        const EdgeInsets.only(left: 20, right: 20, bottom: 15),
                     child: Divider(
                       thickness: 2,
                       color: theme.accentColor,
