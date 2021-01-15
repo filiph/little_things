@@ -1,5 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:little_things_list/src/data/done_provider.dart';
 import 'package:little_things_list/src/data/loader.dart';
 import 'package:little_things_list/src/data/parse_agenda.dart';
@@ -24,9 +28,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: TextTheme(
-          headline1: TextStyle(),
-          bodyText2: TextStyle(fontSize: 18),
-          subtitle1: TextStyle(fontStyle: FontStyle.italic),
+          headline4: GoogleFonts.eater(fontSize: 50, height: 1.1),
+          headline6: GoogleFonts.eater(fontSize: 19),
+          bodyText2: GoogleFonts.ibmPlexMono(fontSize: 16),
         )
       ),
       home: Loader(

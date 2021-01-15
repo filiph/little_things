@@ -28,7 +28,7 @@ class MyAgendaList extends StatelessWidget {
                     child:
                         Text('These are the topics I’d like to discuss today.'),
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: 20),
                   for (final item in agenda.items) AgendaListItem(item),
                 ],
               ),
