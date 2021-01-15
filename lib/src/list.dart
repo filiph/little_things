@@ -25,8 +25,10 @@ class MyAgendaList extends StatelessWidget {
                   Text('My agenda', style: theme.textTheme.headline4),
                   Padding(
                     padding: const EdgeInsets.only(top: 20, right: 20),
-                    child:
-                        Text('These are the topics I’d like to discuss today.'),
+                    child: Text(
+                      'These are the topics I’d like to discuss today.',
+                      style: theme.textTheme.subtitle1,
+                    ),
                   ),
                   SizedBox(height: 20),
                   for (final item in agenda.items) AgendaListItem(item),

@@ -42,10 +42,12 @@ class _Paragraph extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    Text child;
+    Widget child;
     if (text.startsWith('# ')) {
-      child = Text(text.substring(2),
-          style: theme.textTheme.headline6);
+      child = Padding(
+        padding: const EdgeInsets.only(top: 10),
+        child: Text(text.substring(2), style: theme.textTheme.headline6),
+      );
     } else {
       child = Text(text);
     }

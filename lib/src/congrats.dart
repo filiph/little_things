@@ -11,7 +11,7 @@ class CongratsCard extends StatelessWidget {
     return AnimatedPositioned(
       left: 40,
       right: 40,
-      top: allDone ? 200 : -400,
+      top: allDone ? 180 : -420,
       duration: const Duration(milliseconds: 500),
       child: RepaintBoundary(
         child: Card(
@@ -59,8 +59,8 @@ class _CardContentsState extends State<_CardContents> {
           'Congratulations!',
           style: theme
               .textTheme
-              .headline5
-              .copyWith(fontWeight: FontWeight.bold),
+              .headline4
+              .copyWith(fontSize: 30),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 20, bottom: 30),
@@ -68,7 +68,9 @@ class _CardContentsState extends State<_CardContents> {
             'You have successfully completed watching this talk. '
             'You get 50 completely meaningless virtual points!',
             textAlign: TextAlign.center,
-            style: theme.textTheme.bodyText1,
+            style: theme.textTheme.bodyText2.copyWith(
+              fontSize: 14,
+            ),
           ),
         ),
       ],

@@ -25,14 +25,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        textTheme: TextTheme(
-          headline4: GoogleFonts.eater(fontSize: 50, height: 1.1),
-          headline6: GoogleFonts.eater(fontSize: 19),
-          bodyText2: GoogleFonts.ibmPlexMono(fontSize: 16),
-        )
-      ),
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          textTheme: TextTheme(
+            headline4: GoogleFonts.workSans(
+              fontSize: 41,
+              fontWeight: FontWeight.w400,
+              letterSpacing: -3,
+              color: Colors.black,
+            ),
+            headline6: GoogleFonts.workSans(fontSize: 22),
+            bodyText2: GoogleFonts.sourceSerifPro(fontSize: 18, height: 1.6),
+            subtitle1: GoogleFonts.sourceSerifPro(fontSize: 18, height: 1.4),
+          )),
       home: Loader(
         () => parseAgenda(context),
         (agenda) => MyAgendaList(agenda),
