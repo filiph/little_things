@@ -80,28 +80,31 @@ class _CardContentsState extends State<_CardContents>
             ),
             parent: _controller,
           ),
-          child: Text('🎉', style: TextStyle(fontSize: 50)),
+          child: SizedBox(
+            height: 70,
+            child: Image.asset('assets/party-popper_1f389.png'),
+          ),
         ),
         SizedBox(height: 20),
         Text(
           'Congratulations!',
           style: theme.textTheme.headline4.copyWith(fontSize: 30),
         ),
-        // Padding(
-        //   padding: const EdgeInsets.only(top: 20, bottom: 30),
-        //   child: TrackedOutText(
-        //     'You have successfully completed watching this talk. '
-        //     'You get 50 completely meaningless virtual points!',
-        //     CurvedAnimation(
-        //       curve: Interval(0.5, 0.9),
-        //       parent: _controller,
-        //     ),
-        //     textAlign: TextAlign.center,
-        //     style: theme.textTheme.bodyText2.copyWith(
-        //       fontSize: 14,
-        //     ),
-        //   ),
-        // ),
+        Padding(
+          padding: const EdgeInsets.only(top: 20, bottom: 30),
+          child: TrackedOutText(
+            'You have successfully completed watching this talk. '
+            'You get 50 completely meaningless virtual points!',
+            CurvedAnimation(
+              curve: Interval(0.45, 0.7),
+              parent: _controller,
+            ),
+            textAlign: TextAlign.center,
+            style: theme.textTheme.bodyText2.copyWith(
+              fontSize: 14,
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -110,7 +113,8 @@ class _CardContentsState extends State<_CardContents>
 class TrackedOutText extends StatefulWidget {
   final String text;
 
-  final List<String> _slices;
+  final List<TextSpan> _slices;
+  final List<TextSpan> _slicesTransparent;
 
   final Animation<double> progress;
 
@@ -122,15 +126,24 @@ class TrackedOutText extends StatefulWidget {
     this.progress, {
     this.textAlign,
     this.style,
-  }) : _slices = _generateSlices(text).toList(growable: false);
+  })  : _slices = _generateSlices(text, style, false).toList(growable: false),
+        _slicesTransparent =
+            _generateSlices(text, style, true).toList(growable: false);
 
-  static Iterable<String> _generateSlices(String text) sync* {
-    const step = 2;
+  static Iterable<TextSpan> _generateSlices(
+      String text, TextStyle style, bool transparent) sync* {
+    const step = 3;
     var i = 0;
     for (; i < text.length - step; i += step) {
-      yield text.substring(i, i + step);
+      yield TextSpan(
+        text: text.substring(i, i + step),
+        style: transparent ? style.apply(color: Colors.transparent) : null,
+      );
     }
-    yield text.substring(i);
+    yield TextSpan(
+      text: text.substring(i),
+      style: transparent ? style.apply(color: Colors.transparent) : null,
+    );
   }
 
   @override
@@ -146,14 +159,10 @@ class _TrackedOutTextState extends State<TrackedOutText> {
         return Text.rich(
           TextSpan(
             children: [
-              // XXX: This should be cached instead of recreating everything
-              // on each frame.
               for (var i = 0; i < widget._slices.length; i++)
-                TextSpan(
-                    text: widget._slices[i],
-                    style: (i / widget._slices.length < widget.progress.value)
-                        ? null
-                        : widget.style.apply(color: Colors.transparent))
+                (i / widget._slices.length < widget.progress.value)
+                    ? widget._slices[i]
+                    : widget._slicesTransparent[i],
             ],
           ),
           textAlign: widget.textAlign,
