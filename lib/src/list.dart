@@ -14,24 +14,25 @@ class MyAgendaList extends StatelessWidget {
 
     return Stack(
       children: [
-        Scaffold(
-          body: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color(0xFF96E3FF),
-                  Color(0xFF9EECFF),
-                  Color(0xFF9FEBFF),
-                  Color(0xFF9FEEFF),
-                  Color(0xFF9FECFF),
-                ],
-              ),
-              image: DecorationImage(
-                image: AssetImage('assets/meditation.jpg'),
-                alignment: Alignment.bottomCenter,
-              ),
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFF96E3FF),
+                Color(0xFF9EECFF),
+                Color(0xFF9FEBFF),
+                Color(0xFF9FEEFF),
+                Color(0xFF9FECFF),
+              ],
             ),
-            child: SafeArea(
+            image: DecorationImage(
+              image: AssetImage('assets/meditation.jpg'),
+              alignment: Alignment.bottomCenter,
+            ),
+          ),
+          child: Scaffold(
+            backgroundColor: Colors.transparent,
+            body: SafeArea(
               child: Padding(
                 padding:
                     const EdgeInsets.only(left: 80, right: 80, bottom: 180),
